@@ -1,3 +1,7 @@
 <template>
-    <h1 class="text-9xl">Home</h1>
+    <div class="w-[calc(100%-3rem)] mt-60 mx-auto h-[200vh]"></div>
 </template>
+
+<script>
+export default {}
+</script>

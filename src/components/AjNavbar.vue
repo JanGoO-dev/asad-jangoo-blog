@@ -1,7 +1,7 @@
 <template>
     <div id="navbar" class="transition-all duration-700 bg-gray-100 w-screen h-20 lg:h-60 fixed top-0 right-0 border-b-2">
         <div class="hidden lg:block relative w-full h-24" style="font-family: 'times new roman';">
-            <div id="title" class="transition-all duration-300 absolute top-0 left-0 my-6 mx-8 w-28 h-[186px] border-4 border-gray-900">
+            <div id="title" class="transition-all duration-700 absolute top-0 left-0 my-6 mx-8 w-28 h-[186px] border-4 border-gray-900">
                 <div :class="{ 'opacity-0': hide }" class="transition-all duration-1000 absolute top-0 left-0 ml-36 pl-3 whitespace-nowrap h-24 px-1 flex items-center ">
                     <h1 class="select-none text-5xl tracking-[0.3em] font-extrabold">Asad JanGoO</h1>
                 </div>
@@ -9,7 +9,7 @@
             <div id="logo-text" class="transition-all duration-700 select-none opacity-0 absolute transform translate-x-[-100%] left-0 top-0 ml-12 my-6">
                 <h1 class="select-none text-5xl font-extrabold">Asad JanGoO</h1>
             </div>
-            <div id="logo" class="transition-all duration-300 absolute top-0 left-0 ml-10 mr-8 my-8 w-28 bg-gray-100">
+            <div id="logo" class="transition-all duration-700 absolute top-0 left-0 ml-10 mr-8 my-8 w-28 bg-gray-100">
                 <img @mouseover="showTitle" @mouseleave="hideTitle" class="hover:m-2 transition-all duration-700 cursor-pointer w-full" src="../assets/aj-logo.svg" alt="Asad JanGoO SVG Logo">
             </div>
             <div id="nav" class="transition-all duration-700 absolute top-0 right-0 m-6 h-24 px-1 flex items-center gap-4 bg-transparent">
@@ -96,10 +96,8 @@ export default {
                 title.classList.add('w-16')
                 title.classList.remove('h-[186px]')
                 title.classList.add('h-[96px]')
-                setTimeout(() => {
-                    title.classList.add('opacity-0')
-                    logo.classList.add('opacity-0')
-                }, 100)
+                title.classList.add('opacity-0')
+                logo.classList.add('opacity-0')
             }
             if (pos < 50 && width > 1024) {
                 logo_txt.classList.add('translate-x-[-100%]')

@@ -1,7 +1,7 @@
 <template>
     <div id="navbar" class="transition-all duration-700 bg-gray-100 w-screen h-20 lg:h-60 fixed top-0 right-0 border-b-2">
         <div class="hidden lg:block relative w-full h-24" style="font-family: 'times new roman';">
-            <div id="title" class="transition-all duration-700 absolute top-0 left-0 my-6 mx-8 w-28 h-[186px] border-4 border-gray-900">
+            <div id="title" class="transition-all duration-700 absolute top-0 left-0 my-6 mx-8 w-28 h-[195%] border-4 border-gray-900">
                 <div :class="{ 'opacity-0': hide }" class="transition-all duration-1000 absolute top-0 left-0 ml-36 pl-3 whitespace-nowrap h-24 px-1 flex items-center ">
                     <h1 class="select-none text-5xl tracking-[0.3em] font-extrabold">Asad JanGoO</h1>
                 </div>
@@ -94,8 +94,8 @@ export default {
                 logo.classList.add('w-12')
                 title.classList.remove('w-28')
                 title.classList.add('w-16')
-                title.classList.remove('h-[186px]')
-                title.classList.add('h-[96px]')
+                title.classList.remove('h-[195%]')
+                title.classList.add('h-[99%]')
                 title.classList.add('opacity-0')
                 logo.classList.add('opacity-0')
             }
@@ -113,8 +113,8 @@ export default {
                     logo.classList.add('w-28')
                     title.classList.add('w-28')
                     title.classList.remove('w-16')
-                    title.classList.add('h-[186px]')
-                    title.classList.remove('h-[96px]')
+                    title.classList.add('h-[195%]')
+                    title.classList.remove('h-[99%]')
                 }, 100)
             }
         })

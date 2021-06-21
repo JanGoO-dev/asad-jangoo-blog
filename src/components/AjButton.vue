@@ -3,10 +3,10 @@
         --aj-btn-width: ${width}rem;
         --aj-btn-active: ${spacing}rem;
         `">
-        <div class="transition-all duration-700 btn cursor-pointer relative h-14 bg-transparent hover:border-[1px] border-gray-900 hover:border-gray-900" :class="{ 'border-[1px] border-gray-900': active }">
+        <div class="transition-all duration-700 btn cursor-pointer relative h-14 bg-transparent hover:border-[1px] hover:bg-gray-100 border-gray-900 hover:border-gray-900" :class="{ 'border-[1px] border-gray-900 bg-gray-100': active }">
             <div class="transition-all duration-700 opacity-0 relative top-0 left-0 z-20 bg-gray-900 w-4 h-full" :class="{ 'absolute top-0 left-0 opacity-100': active }"></div>
             <div class="transition-all duration-700 delay-300 absolute left-0 right-0 inset-y-0 z-10 flex items-center justify-center" :class="{ 'active': active }">
-                <span class="select-none text-gray-900 uppercase text-xl">{{ btnText }}</span>
+                <span class="select-none text-gray-900 uppercase text-xl" style="font-family: 'times new roman';">{{ btnText }}</span>
             </div>
         </div>
     </div>

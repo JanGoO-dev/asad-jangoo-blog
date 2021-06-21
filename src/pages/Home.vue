@@ -1,7 +1,14 @@
 <template>
-    <div class="w-[calc(100%-3rem)] mt-60 mx-auto h-[200vh]"></div>
+    <aj-hero />
+    <div class="w-full h-screen"></div>
 </template>
 
 <script>
-export default {}
+import AjHero from '../components/AjHero.vue'
+
+export default {
+    components: {
+        AjHero
+    }
+}
 </script>

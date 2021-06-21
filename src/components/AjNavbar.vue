@@ -10,7 +10,7 @@
                 <h1 class="select-none text-5xl font-extrabold">Asad JanGoO</h1>
             </div>
             <div id="logo" class="transition-all duration-700 absolute top-0 left-0 ml-10 mr-8 my-8 w-28 bg-gray-100">
-                <img @mouseover="showTitle" @mouseleave="hideTitle" class="hover:m-2 transition-all duration-700 cursor-pointer w-full" src="../assets/aj-logo.svg" alt="Asad JanGoO SVG Logo">
+                <img @mouseover="showTitle" @mouseleave="hideTitle" class="hover:m-2 transition-all duration-700 cursor-pointer w-full select-none" src="../assets/aj-logo.svg" alt="Asad JanGoO SVG Logo">
             </div>
             <div id="nav" class="transition-all duration-700 absolute top-0 right-0 m-6 h-24 px-1 flex items-center gap-4 bg-transparent">
                 <div v-for="(link, index) in links" :key="index">
@@ -122,3 +122,14 @@ export default {
 }
 
 </script>
+
+<style scoped>
+img, #nav {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+</style>

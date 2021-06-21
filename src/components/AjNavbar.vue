@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-gray-100 w-screen h-60 fixed top-0 right-0 border-b-2">
-        <div class="relative w-full h-24" style="font-family: 'times new roman';">
+    <div class="bg-gray-100 w-screen h-20 lg:h-60 fixed top-0 right-0 border-b-2">
+        <div class="hidden lg:block relative w-full h-24" style="font-family: 'times new roman';">
             <div class="absolute top-0 left-0 my-6 mx-8 w-28 h-[186px] border-4 border-gray-900"></div>
             <div class="absolute top-0 left-0 ml-10 mr-8 my-8 w-28 bg-gray-100">
                 <img class="hover:m-2 transition-all duration-700 cursor-pointer w-28" src="../assets/aj-logo.svg" alt="Asad JanGoO SVG Logo">

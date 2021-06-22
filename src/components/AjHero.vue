@@ -1,5 +1,5 @@
 <template>
-    <div id="hero" class="z-0 relative w-[calc(100%-2rem)] lg:w-[calc(100%-5rem)] h-[40rem] mt-72 mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10">
+    <div id="hero" class="z-0 relative w-[calc(100%-2rem)] lg:w-[calc(100%-5rem)] mt-72 mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10">
         <div class="relative min-h-[40rem] col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-3" style="font-family: 'times new roman';">
             <div class="bg-image bg-cover bg-no-repeat bg-top w-full h-full border-2 border-gray-900"></div>
             <div class="absolute bottom-0 left-0 m-[0.15rem] w-full">
@@ -7,7 +7,7 @@
                     <h1 class="text-3xl text-white select-none">AJ</h1>
                 </div>
                 <div class="p-10 bg-gradient-to-r from-gray-100 via-gray-200 to-transparent">
-                    <h1 class="pl-0 md:pl-22 lg:pl-36 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-gray-900 font-extrabold tracking-wide">Lorem Ipsem Maseep</h1>
+                    <h1 class="pl-0 md:pl-28 lg:pl-36 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-gray-900 font-extrabold tracking-wide">Lorem Ipsem Maseep</h1>
                 </div>
             </div>
             <div class="absolute top-0 right-0 m-10">

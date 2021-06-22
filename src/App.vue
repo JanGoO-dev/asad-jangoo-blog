@@ -2,20 +2,20 @@
   <aj-nav-bar />
   <aj-mobnav />
   <router-view></router-view>
+  <aj-footer />
 </template>
 
 <script>
 import AjNavBar from './components/AjNavbar.vue'
 import AjMobnav from './components/AjMobnav.vue'
+import AjFooter from './components/AjFooter.vue'
 
 export default {
   components: {
     AjNavBar,
-    AjMobnav
-  },
-  setup() {
-    
-  },
+    AjMobnav,
+    AjFooter
+  }
 }
 </script>
 

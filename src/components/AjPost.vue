@@ -30,21 +30,14 @@ export default {
         }
     },
     mounted() {
-        if (!this.loadingPosts) {
-            setTimeout(() => {
-                let len = this.postdata["post-title"].length
-                if (len > 32) {
-                    this.postTitle = this.postdata["post-title"].slice(0, 32) + "..."
-                } else {
-                    this.postTitle = this.postdata["post-title"]
-                }
-            }, 1000)
-        }
-    },
-    computed: {
-        loadingPosts() {
-            return this.$store.getters.GET_LOADING_POSTS
-        }
+        setTimeout(() => {
+            let len = this.postdata["post-title"].length
+            if (len > 32) {
+                this.postTitle = this.postdata["post-title"].slice(0, 32) + "..."
+            } else {
+                this.postTitle = this.postdata["post-title"]
+            }
+        }, 3000)
     }
 }
 </script>

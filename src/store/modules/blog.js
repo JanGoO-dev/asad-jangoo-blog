@@ -48,7 +48,9 @@ export default {
                 querySnapshot.forEach((doc) => {
                     commit('SET_POSTS', { id: doc.id, data: doc.data() })
                 });
-                commit('SET_LOADING_POSTS', false)
+                setTimeout(() => {
+                    commit('SET_LOADING_POSTS', false)
+                }, 1000);
             });
         }
     }

@@ -1,10 +1,10 @@
 <template>
-    <aj-hero />
+    <aj-hero :latestPost="recentPosts[0].data" />
     <div class="background-pattern w-[calc(100% - 0.1rem)] mx-auto text-center py-10 px-5 my-16" style="font-family: 'times new roman';">
         <h1 class="text-3xl sm:text-9xl text-gray-200 font-extrabold capitalize select-none">Recent Posts</h1>
     </div>
     <div class="z-0 relative w-[calc(100%-2rem)] lg:w-[calc(100%-10rem)] xl:w-[calc(100% - 15rem)] 2xl:w-[calc(100%-40rem)] mx-auto">
-        <aj-post v-for="(post, index) in 10" :key="index" />
+        <aj-post v-for="post in recentPosts" :key="post.id" :postdata="post.data" />
     </div>
     <div class="w-[calc(100% - 5rem)] h-28"></div>
 </template>
@@ -17,6 +17,11 @@ export default {
     components: {
         AjHero,
         AjPost
+    },
+    computed: {
+        recentPosts() {
+            return this.$store.getters.GET_POSTS
+        }
     }
 }
 </script>

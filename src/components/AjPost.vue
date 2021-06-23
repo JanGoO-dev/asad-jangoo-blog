@@ -6,10 +6,10 @@
         <div class="relative bg-image grayscale bg-center bg-cover bg-no-repeat row-span-2 lg:row-span-5 col-span-5 lg:col-span-2 bg-white"></div>
         <div class="relative row-span-3 lg:row-span-5 col-span-5 lg:col-span-3 p-4 sm:p-10">
             <div class="xl:-ml-12 mr-6 z-20 relative xl:absolute whitespace-normal xl:whitespace-nowrap xl:px-5 py-2 right-0 h-20 mb-10 text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold" style="font-family: 'times new roman';">
-                <span class="text-shadow transition-all duration-700 cursor-pointer text-gray-400 hover:text-gray-900">Lorem ipsum dolor sit consectetur.</span>
+                <span class="text-shadow transition-all duration-700 cursor-pointer text-gray-400 hover:text-gray-900">{{ postdata["post-title"] }}</span>
             </div>
             <div class="hidden xl:block relative h-28 w-full"></div>
-            <p class="text-xl md:text-2xl text-justify pb-8 text-gray-500" style="font-family: 'times new roman';">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, temporibus recusandae atque ipsa eveniet amet minus cupiditate explicabo quos. Aspernatur, corrupti dolore nisi officiis et deleniti nihil ad accusamus? Iusto blanditiis odit, quia laboriosam officia natus corporis. At, deserunt nisi?</p>
+            <p class="text-xl md:text-2xl text-justify pb-8 text-gray-500" style="font-family: 'times new roman';">{{ postdata["post-content-feilds"][0].content }}</p>
             <div class="float-right">
                 <aj-button text="Read More" />
             </div>
@@ -20,6 +20,7 @@
 <script>
 import AjButton from '../components/AjButton.vue'
 export default {
+    props: ['postdata'],
     components: {
         AjButton
     }

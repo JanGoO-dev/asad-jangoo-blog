@@ -6,7 +6,7 @@
         <div class="relative bg-image grayscale bg-center bg-cover bg-no-repeat row-span-2 lg:row-span-5 col-span-5 lg:col-span-2 bg-white"></div>
         <div class="relative row-span-3 lg:row-span-5 col-span-5 lg:col-span-3 p-4 sm:p-10">
             <div class="xl:-ml-12 mr-6 z-20 relative xl:absolute whitespace-normal xl:whitespace-nowrap xl:px-5 py-2 right-0 h-20 mb-10 text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold" style="font-family: 'times new roman';">
-                <span class="text-shadow transition-all duration-700 cursor-pointer text-gray-400 hover:text-gray-900">{{ postdata["post-title"] }}</span>
+                <span class="text-shadow transition-all duration-700 cursor-pointer text-gray-400 hover:text-gray-900">{{ postTitle }}</span>
             </div>
             <div class="hidden xl:block relative h-28 w-full"></div>
             <p class="text-xl md:text-2xl text-justify pb-8 text-gray-500" style="font-family: 'times new roman';">{{ postdata["post-content-feilds"][0].content }}</p>
@@ -23,6 +23,28 @@ export default {
     props: ['postdata'],
     components: {
         AjButton
+    },
+    data: () => {
+        return {
+            postTitle: "loading..."
+        }
+    },
+    mounted() {
+        if (!this.loadingPosts) {
+            setTimeout(() => {
+                let len = this.postdata["post-title"].length
+                if (len > 32) {
+                    this.postTitle = this.postdata["post-title"].slice(0, 32) + "..."
+                } else {
+                    this.postTitle = this.postdata["post-title"]
+                }
+            }, 1000)
+        }
+    },
+    computed: {
+        loadingPosts() {
+            return this.$store.getters.GET_LOADING_POSTS
+        }
     }
 }
 </script>

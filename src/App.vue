@@ -1,4 +1,11 @@
 <template>
+  <div v-show="$store.getters.GET_LOADING_POSTS" class="z-50 animate-pulse fixed top-0 left-0 bottom-0 right-0 bg-gradient-to-tr from-black to-gray-900">
+    <div class="absolute top-1/2 left-1/2" style="transform: translate(-50%, -50%);">
+      <svg xmlns="http://www.w3.org/2000/svg" class="animate-spin h-32 w-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
+    </div>
+  </div>
   <aj-nav-bar />
   <aj-mobnav />
   <router-view></router-view>

@@ -1,5 +1,5 @@
 <template>
-    <aj-hero :latestPost="recentPosts[0].data" />
+    <aj-hero :postTitle="postTitle" :likes="latestPost.likes" />
     <div class="background-pattern w-[calc(100% - 0.1rem)] mx-auto text-center py-10 px-5 my-16" style="font-family: 'times new roman';">
         <h1 class="text-3xl sm:text-9xl text-gray-200 font-extrabold capitalize select-none">Recent Posts</h1>
     </div>
@@ -18,9 +18,27 @@ export default {
         AjHero,
         AjPost
     },
+    data: () => {
+        return {
+            postTitle: "loading..."
+        }
+    },
+    mounted() {
+        setTimeout(() => {
+            let len = this.latestPost["post-title"].length
+            if (len > 32) {
+                this.postTitle = this.latestPost["post-title"].slice(0, 32) + "..."
+            } else {
+                this.postTitle = this.latestPost["post-title"]
+            }
+        }, 3000)
+    },
     computed: {
         recentPosts() {
             return this.$store.getters.GET_POSTS
+        },
+        latestPost() {
+            return this.$store.getters.GET_LATEST_POST
         }
     }
 }

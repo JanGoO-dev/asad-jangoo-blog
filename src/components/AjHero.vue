@@ -7,11 +7,11 @@
                     <h1 class="text-3xl text-white select-none">AJ</h1>
                 </div>
                 <div class="p-10 bg-gradient-to-r from-gray-100 via-gray-200 to-transparent">
-                    <h1 class="pl-0 md:pl-28 lg:pl-36 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-gray-900 font-extrabold tracking-wide">{{ latestPost["post-title"] }}</h1>
+                    <h1 class="pl-0 md:pl-28 lg:pl-36 text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-gray-900 font-extrabold tracking-wide">{{ postTitle }}</h1>
                 </div>
             </div>
             <div class="absolute top-0 right-0 m-10">
-                <h1 class="text-lg sm:text-xl md:text-2xl tracking-widest select-none">{{ latestPost.likes }} Likes</h1>
+                <h1 class="text-lg sm:text-xl md:text-2xl tracking-widest select-none">{{ likes }} Likes</h1>
             </div>
         </div>
         <div class="col-span-1 lg:col-span-2 xl:col-span-1 p-4 lg:p-10 gap-4 grid grid-cols-5 xl:grid-cols-1 grid-rows-2 xl:grid-rows-6 border-2 border-gray-900">
@@ -32,7 +32,7 @@
 import AjButton from './AjButton.vue'
 
 export default {
-    props: ['latestPost'],
+    props: ['postTitle', 'likes'],
     components: {
         AjButton
     },

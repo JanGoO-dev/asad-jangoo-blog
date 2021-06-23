@@ -1,5 +1,5 @@
 <template>
-    <div id="navbar" class="z-50 transition-all duration-700 bg-gray-100 background-pattern w-screen h-20 lg:h-60 fixed top-0 right-0 border-b-2 border-gray-200">
+    <div id="navbar" class="z-40 transition-all duration-700 bg-gray-100 background-pattern w-screen h-20 lg:h-60 fixed top-0 right-0 border-b-2 border-gray-200">
         <div class="hidden lg:block relative w-full h-24" style="font-family: 'times new roman';">
             <div id="title" class="transition-all duration-700 absolute top-0 left-0 my-6 mx-14 w-28 h-[195%] border-4 border-gray-900">
                 <div :class="{ 'opacity-0': hide }" class="transition-all duration-1000 absolute top-0 left-0 ml-36 pl-3 whitespace-nowrap h-24 px-1 flex items-center ">

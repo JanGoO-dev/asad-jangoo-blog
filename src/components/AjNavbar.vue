@@ -14,7 +14,7 @@
             </div>
             <div id="nav" class="transition-all duration-700 absolute top-0 right-0 m-6 h-24 px-1 flex items-center gap-4 bg-transparent">
                 <div v-for="(link, index) in links" :key="index">
-                    <aj-button :text="link.title" :spacing="0.5" :active="currentRoute == link.href" />
+                    <aj-button @click="$router.push({ name: link.componentName })" :text="link.title" :spacing="0.5" :active="currentRoute == link.href" />
                 </div>
             </div>
         </div>
@@ -36,10 +36,10 @@ export default {
     data: () => {
         return {
             links: [
-                { title: 'Welcome', href: '/' },
-                { title: 'Popular', href: '/popular' },
-                { title: 'About', href: '/about' },
-                { title: 'Contact', href: '/contact' },
+                { title: 'Welcome', componentName: 'Home', href: '/' },
+                { title: 'Popular', componentName: '#', href: '/popular' },
+                { title: 'About', componentName: '#', href: '/about' },
+                { title: 'Contact', componentName: '#', href: '/contact' },
             ],
             hide: true
         }

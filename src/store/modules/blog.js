@@ -3,7 +3,9 @@ export default {
         headline: {},
         posts: [],
         latestPost: {},
-        loadinPosts: false
+        loadinPosts: false,
+        postsEnd: false,
+        curPost: {}
     }),
     getters: {
         GET_HEADLINE(state) {
@@ -17,6 +19,12 @@ export default {
         },
         GET_LOADING_POSTS(state) {
             return state.loadinPosts
+        },
+        GET_POSTS_END(state) {
+            return state.postsEnd
+        },
+        GET_CUR_POST(state) {
+            return state.curPost
         }
     },
     mutations: {
@@ -31,6 +39,12 @@ export default {
         },
         SET_LOADING_POSTS(state, payload) {
             state.loadinPosts = payload
+        },
+        SET_POSTS_END(state, payload) {
+            state.postsEnd = payload
+        },
+        SET_CUR_POST(state, payload) {
+            state.curPost = payload
         }
     },
     actions: {
@@ -43,15 +57,18 @@ export default {
         },
         fetchPosts({ commit }, db) {
             commit('SET_LOADING_POSTS', true)
-            db.collection("blog-posts").get().then((querySnapshot) => {
+            db.collection("blog-posts").orderBy("post-number", "desc").limit(10).get().then((querySnapshot) => {
                 commit('SET_LATEST_POST', querySnapshot.docs[0].data())
                 querySnapshot.forEach((doc) => {
                     commit('SET_POSTS', { id: doc.id, data: doc.data() })
+                    if (doc.data()["post-number"] == 1) {
+                        commit('SET_POSTS_END', true)
+                    }
                 });
                 setTimeout(() => {
                     commit('SET_LOADING_POSTS', false)
                 }, 1000);
-            });
+            })
         }
     }
 }

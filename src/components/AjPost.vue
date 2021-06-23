@@ -11,7 +11,7 @@
             <div class="hidden xl:block relative h-28 w-full"></div>
             <p class="text-xl md:text-2xl text-justify pb-8 text-gray-500" style="font-family: 'times new roman';">{{ postdata["post-content-feilds"][0].content }}</p>
             <div class="float-right">
-                <aj-button text="Read More" />
+                <aj-button @click="openPostPage" text="Read More" />
             </div>
         </div>
     </div>
@@ -20,13 +20,19 @@
 <script>
 import AjButton from '../components/AjButton.vue'
 export default {
-    props: ['postdata'],
+    props: ['postdata', 'id'],
     components: {
         AjButton
     },
     data: () => {
         return {
             postTitle: "loading..."
+        }
+    },
+    methods: {
+        openPostPage() {
+            this.$router.push({ name: 'Post', params: { id: this.id } })
+            this.$store.commit('SET_CUR_POST', this.postdata)
         }
     },
     mounted() {

@@ -1,4 +1,5 @@
 <template>
+  <div id="top"></div>
   <div v-show="$store.getters.GET_LOADING_POSTS" class="z-50 animate-pulse fixed top-0 left-0 bottom-0 right-0 bg-gradient-to-tr from-black to-gray-900">
     <div class="absolute top-1/2 left-1/2" style="transform: translate(-50%, -50%);">
       <svg xmlns="http://www.w3.org/2000/svg" class="animate-spin h-32 w-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">

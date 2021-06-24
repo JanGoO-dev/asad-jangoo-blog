@@ -4,6 +4,7 @@ export default {
         posts: [],
         popularPosts: [],
         latestPost: {},
+        latestPostId: '',
         loadinPosts: false,
         postsEnd: false,
         curPost: {}
@@ -17,6 +18,9 @@ export default {
         },
         GET_LATEST_POST(state) {
             return state.latestPost
+        },
+        GET_LATEST_POST_ID(state) {
+            return state.latestPostId
         },
         GET_LOADING_POSTS(state) {
             return state.loadinPosts
@@ -40,6 +44,9 @@ export default {
         },
         SET_LATEST_POST(state, payload) {
             state.latestPost = payload
+        },
+        SET_LATEST_POST_ID(state, payload) {
+            state.latestPostId = payload
         },
         SET_LOADING_POSTS(state, payload) {
             state.loadinPosts = payload
@@ -66,6 +73,7 @@ export default {
             commit('SET_LOADING_POSTS', true)
             db.collection("blog-posts").orderBy("post-number", "desc").limit(10).get().then((querySnapshot) => {
                 commit('SET_LATEST_POST', querySnapshot.docs[0].data())
+                commit('SET_LATEST_POST_ID', querySnapshot.docs[0].id)
                 querySnapshot.forEach((doc) => {
                     commit('SET_POSTS', { id: doc.id, data: doc.data() })
                     if (doc.data()["post-number"] == 1) {

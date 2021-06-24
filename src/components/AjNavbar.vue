@@ -38,8 +38,8 @@ export default {
             links: [
                 { title: 'Welcome', componentName: 'Home', href: '/' },
                 { title: 'Popular', componentName: 'Popular', href: '/popular' },
-                { title: 'About', componentName: '#', href: '/about' },
-                { title: 'Contact', componentName: '#', href: '/contact' },
+                { title: 'About', componentName: 'About', href: '/about' },
+                { title: 'Contact', componentName: 'Contact', href: '/contact' },
             ],
             hide: true
         }

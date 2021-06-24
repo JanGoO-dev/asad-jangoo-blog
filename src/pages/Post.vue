@@ -9,8 +9,8 @@
                 <p class="pt-24 text-xl text-justify">{{ postIntro }}</p>
             </div>
             <div class="hidden md:block mx-auto w-[615px] h-[615px] bg-cover bg-no-repeat bg-center grayscale" style="background-image: url(https://picsum.photos/600);"></div>
-            <div class="mx-auto w-full 2xl:w-[calc(calc(100%-630px)/2)] flex flex-col items-center">
-                <div class="w-28 h-28 rounded-full bg-cover bg-no-repeat bg-center grayscale" style="background-image: url(https://picsum.photos/600);"></div>
+            <div @click="$router.push({ name: 'About' })" class="cursor-pointer mx-auto w-full 2xl:w-[calc(calc(100%-630px)/2)] flex flex-col items-center">
+                <div class="w-28 h-28 rounded-full bg-cover bg-no-repeat bg-center grayscale" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/asadjangooblog.appspot.com/o/photo_sm.jpg?alt=media&token=eef73fc5-bd01-40aa-8880-43bfde204862);"></div>
                 <div class="text-center">
                     <h1 class="font-bold mt-6 text-xl 2xl:text-3xl">
                         {{ postData['created-by'] }}
@@ -54,6 +54,7 @@ export default {
     mounted() {
         const db = firebase.firestore()
         const id = this.getId
+
         db.collection("blog-posts").doc(id).get().then((snapshot) => {
             if (snapshot.exists) {
                 this.postIntro = snapshot.data()['post-content-feilds'][0].content.slice(0, 250) + "..."

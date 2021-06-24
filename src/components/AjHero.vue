@@ -1,6 +1,6 @@
 <template>
     <div id="hero" class="z-0 relative w-[calc(100%-2rem)] lg:w-[calc(100%-5rem)] mt-72 mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10">
-        <div class="relative min-h-[40rem] col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-3" style="font-family: 'times new roman';">
+        <div @click="openPostPage" class="cursor-pointer transition-all duration-700 transform hover:scale-[1.01] relative min-h-[40rem] col-span-1 lg:col-span-2 xl:col-span-2 2xl:col-span-3" style="font-family: 'times new roman';">
             <div class="bg-image bg-cover bg-no-repeat bg-top w-full h-full border-2 border-gray-900"></div>
             <div class="absolute bottom-0 left-0 m-[0.15rem] w-full">
                 <div class="shadow-2xl absolute bottom-0 left-0 m-10 bg-gray-900 w-20 lg:w-24 hidden h-48 py-5 md:flex flex-col items-center justify-between">
@@ -14,7 +14,7 @@
                 <h1 class="text-lg sm:text-xl md:text-2xl tracking-widest select-none">{{ likes }} Likes</h1>
             </div>
         </div>
-        <div class="col-span-1 lg:col-span-2 xl:col-span-1 p-4 lg:p-10 gap-4 grid grid-cols-5 xl:grid-cols-1 grid-rows-2 xl:grid-rows-6 border-2 border-gray-900">
+        <div class="transition-all duration-700 transform hover:scale-[1.01] col-span-1 lg:col-span-2 xl:col-span-1 p-4 lg:p-10 gap-4 grid grid-cols-5 xl:grid-cols-1 grid-rows-2 xl:grid-rows-6 border-2 border-gray-900">
             <div class="hidden xl:block col-span-1 row-span-4 place-self-center select-none">
                 <img class="w-[60%] mx-auto grayscale" src="../assets/mail-box.svg" alt="Undraw Mail Box SVG" draggable="false">
             </div>
@@ -71,7 +71,13 @@ export default {
                 hero.classList.remove('mt-52')
             }
         })
-    }
+    },
+    methods: {
+        openPostPage() {
+            this.$router.push({ name: 'Post', params: { id: this.$store.getters.GET_LATEST_POST_ID } })
+            this.$store.commit('SET_CUR_POST', this.$store.getters.GET_LATEST_POST)
+        }
+    },
 }
 </script>
 

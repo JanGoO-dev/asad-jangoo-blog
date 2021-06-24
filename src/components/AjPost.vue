@@ -1,12 +1,12 @@
 <template>
-    <div class="relative border-4 w-full h-auto bg-gray-100 mt-44 grid grid-rows-5 grid-cols-5">
+    <div class="transition-all duration-700 transform hover:scale-[1.01] relative border-4 w-full h-auto bg-gray-100 mt-44 grid grid-rows-5 grid-cols-5">
         <div class="z-20 absolute -mt-10 left-0 top-0 ml-10 p-6 bg-black">
             <h1 class="text-3xl text-white select-none" style="font-family: 'times new roman ';">AJ</h1>
         </div>
         <div class="relative bg-image grayscale bg-center bg-cover bg-no-repeat row-span-2 lg:row-span-5 col-span-5 lg:col-span-2 bg-white"></div>
         <div class="relative row-span-3 lg:row-span-5 col-span-5 lg:col-span-3 p-4 sm:p-10">
             <div class="xl:-ml-12 mr-6 z-20 relative xl:absolute whitespace-normal xl:whitespace-nowrap xl:px-5 py-2 right-0 h-20 mb-10 text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold" style="font-family: 'times new roman';">
-                <span class="text-shadow transition-all duration-700 cursor-pointer text-gray-400 hover:text-gray-900">{{ postTitle }}</span>
+                <span @click="openPostPage" class="text-shadow transition-all duration-700 cursor-pointer text-gray-400 hover:text-gray-900">{{ postTitle }}</span>
             </div>
             <div class="hidden xl:block relative h-28 w-full"></div>
             <p class="text-xl md:text-2xl text-justify pb-8 text-gray-500" style="font-family: 'times new roman';">{{ postDescription }}</p>
@@ -37,6 +37,7 @@ export default {
         }
     },
     mounted() {
+        this.$store.commit('SET_LOADING_POSTS', true)
         setTimeout(() => {
             let len = this.postdata["post-title"].length
             if (len > 32) {
@@ -46,6 +47,7 @@ export default {
                 this.postTitle = this.postdata["post-title"]
                 this.postDescription = this.postdata["post-content-feilds"][0].content
             }
+            this.$store.commit('SET_LOADING_POSTS', false)
         }, 3000)
     }
 }

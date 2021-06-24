@@ -9,7 +9,7 @@
                 <span class="text-shadow transition-all duration-700 cursor-pointer text-gray-400 hover:text-gray-900">{{ postTitle }}</span>
             </div>
             <div class="hidden xl:block relative h-28 w-full"></div>
-            <p class="text-xl md:text-2xl text-justify pb-8 text-gray-500" style="font-family: 'times new roman';">{{ postdata["post-content-feilds"][0].content }}</p>
+            <p class="text-xl md:text-2xl text-justify pb-8 text-gray-500" style="font-family: 'times new roman';">{{ postDescription }}</p>
             <div class="float-right">
                 <aj-button @click="openPostPage" text="Read More" />
             </div>
@@ -26,7 +26,8 @@ export default {
     },
     data: () => {
         return {
-            postTitle: "loading..."
+            postTitle: "loading...",
+            postDescription: "loading content please wait..."
         }
     },
     methods: {
@@ -40,8 +41,10 @@ export default {
             let len = this.postdata["post-title"].length
             if (len > 32) {
                 this.postTitle = this.postdata["post-title"].slice(0, 32) + "..."
+                this.postDescription = this.postdata["post-content-feilds"][0].content
             } else {
                 this.postTitle = this.postdata["post-title"]
+                this.postDescription = this.postdata["post-content-feilds"][0].content
             }
         }, 3000)
     }

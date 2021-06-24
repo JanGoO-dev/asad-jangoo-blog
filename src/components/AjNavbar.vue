@@ -37,7 +37,7 @@ export default {
         return {
             links: [
                 { title: 'Welcome', componentName: 'Home', href: '/' },
-                { title: 'Popular', componentName: '#', href: '/popular' },
+                { title: 'Popular', componentName: 'Popular', href: '/popular' },
                 { title: 'About', componentName: '#', href: '/about' },
                 { title: 'Contact', componentName: '#', href: '/contact' },
             ],
@@ -56,6 +56,9 @@ export default {
         },
         hideTitle() {
             this.hide = true
+        },
+        clickEvent() {
+            
         }
     },
     mounted() {

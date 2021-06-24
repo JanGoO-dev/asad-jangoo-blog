@@ -2,6 +2,7 @@ export default {
     state: () => ({
         headline: {},
         posts: [],
+        popularPosts: [],
         latestPost: {},
         loadinPosts: false,
         postsEnd: false,
@@ -25,6 +26,9 @@ export default {
         },
         GET_CUR_POST(state) {
             return state.curPost
+        },
+        GET_POPULAR_POSTS(state) {
+            return state.popularPosts
         }
     },
     mutations: {
@@ -45,6 +49,9 @@ export default {
         },
         SET_CUR_POST(state, payload) {
             state.curPost = payload
+        },
+        SET_POPULAR_POSTS(state, payload) {
+            state.popularPosts.push(payload)
         }
     },
     actions: {
@@ -64,6 +71,17 @@ export default {
                     if (doc.data()["post-number"] == 1) {
                         commit('SET_POSTS_END', true)
                     }
+                });
+                setTimeout(() => {
+                    commit('SET_LOADING_POSTS', false)
+                }, 1000);
+            })
+        },
+        fetchPopularPosts({ commit }, db) {
+            commit('SET_LOADING_POSTS', true)
+            db.collection("blog-posts").orderBy("likes", "desc").limit(10).get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    commit('SET_POPULAR_POSTS', { id: doc.id, data: doc.data() })
                 });
                 setTimeout(() => {
                     commit('SET_LOADING_POSTS', false)

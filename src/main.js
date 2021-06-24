@@ -20,5 +20,6 @@ var db = firebase.firestore()
 
 store.dispatch('fetchHeadline', db)
 store.dispatch('fetchPosts', db)
+store.dispatch('fetchPopularPosts', db)
 
 createApp(App).use(router).use(store).mount('#app')
